@@ -29,14 +29,16 @@ public class LocationService {
 
     //@GetMapping("/locations")
     @Tool(
-            name = "get-locations",
+            name = "get-azure-regions",
             description = """
-    Get all Azure locations in the Azure subscription. This tool is used to get a list of all Azure locations
-    in the Azure subscription.  The list of locations is used to verify if the resource is in the correct location.
+    Get all Azure regions in the Azure subscription. This tool is used to get a list of all Azure regions
+    in the Azure subscription. The list of locations is used to verify if the resource can be deployed to an Azure region.
     If the command fails because of authentication errors, ask the user to login to Azure CLI with `az login`.
+    Show both the name and display name of the location.
     """
     )
-    public List<Location> getLocations(@ToolParam(description = "The Azure subscription id", required = true) String subscriptionId) {
-        return locationFinder.findAllLocations(subscriptionId);
+    //public List<Location> getAzureLocations(@ToolParam(description = "The Azure subscription id", required = true) String subscriptionId) {
+    public List<Location> getAzureLocations() {
+        return locationFinder.findAllLocations();
     }
 }

@@ -18,16 +18,16 @@ public class LocationFinder {
         this.resourceManager = resourceManager;
     }
 
-    public List<Location> findAllLocations(String subscriptionId) {
-        log.info("Finding all locations for subscription: {}", subscriptionId);
+    public List<Location> findAllLocations() {
+        log.info("Finding all locations");
 
         // Get the list of locations from the resource manager
-        return resourceManager.subscriptions().getById(subscriptionId).listLocations().stream()
+        return resourceManager.getCurrentSubscription().listLocations().stream()
                 .map(location -> new Location(location.name(), location.displayName()))
                 .collect(Collectors.toList());
 
         /*return resourceManager.getCurrentSubscription().listLocations().stream()
-                .map(location -> new Location(location.name(), location.displayName()))
+                .map(location -> new Region(location.name(), location.displayName()))
                 .collect(Collectors.toList());*/
     }
 
