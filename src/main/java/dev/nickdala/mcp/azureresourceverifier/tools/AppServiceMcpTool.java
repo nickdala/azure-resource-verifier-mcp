@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AppServiceService {
+public class AppServiceMcpTool {
 
     private final AppService appService;
 
-    public AppServiceService(AppService appService) {
+    public AppServiceMcpTool(AppService appService) {
         this.appService = appService;
     }
 

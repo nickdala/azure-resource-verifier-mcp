@@ -9,7 +9,6 @@ import dev.nickdala.mcp.azureresourceverifier.azure.LocationFinder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.tool.annotation.Tool;
-import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,13 +16,13 @@ import java.util.List;
 //@RestController
 //@RequestMapping("/api/v1/azure")
 @Service
-public class LocationService {
+public class LocationMcpTool {
 
-    private static final Logger log = LoggerFactory.getLogger(LocationService.class);
+    private static final Logger log = LoggerFactory.getLogger(LocationMcpTool.class);
 
     private final LocationFinder locationFinder;
 
-    public LocationService(LocationFinder locationFinder) {
+    public LocationMcpTool(LocationFinder locationFinder) {
         this.locationFinder = locationFinder;
     }
 

@@ -1,7 +1,6 @@
 package dev.nickdala.mcp.azureresourceverifier.azure;
 
 import com.azure.resourcemanager.AzureResourceManager;
-//import com.azure.resourcemanager.resources.ResourceManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -25,10 +24,6 @@ public class LocationFinder {
         return resourceManager.getCurrentSubscription().listLocations().stream()
                 .map(location -> new Location(location.name(), location.displayName()))
                 .collect(Collectors.toList());
-
-        /*return resourceManager.getCurrentSubscription().listLocations().stream()
-                .map(location -> new Region(location.name(), location.displayName()))
-                .collect(Collectors.toList());*/
     }
 
 }

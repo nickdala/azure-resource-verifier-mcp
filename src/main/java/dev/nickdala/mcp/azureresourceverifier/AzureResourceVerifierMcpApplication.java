@@ -1,8 +1,8 @@
 package dev.nickdala.mcp.azureresourceverifier;
 
-import dev.nickdala.mcp.azureresourceverifier.tools.AppServiceService;
-import dev.nickdala.mcp.azureresourceverifier.tools.LocationService;
-import dev.nickdala.mcp.azureresourceverifier.tools.PostgresService;
+import dev.nickdala.mcp.azureresourceverifier.tools.AppServiceMcpTool;
+import dev.nickdala.mcp.azureresourceverifier.tools.LocationMcpTool;
+import dev.nickdala.mcp.azureresourceverifier.tools.PostgresMcpTool;
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.boot.SpringApplication;
@@ -17,11 +17,11 @@ public class AzureResourceVerifierMcpApplication {
 	}
 
 	@Bean
-	public ToolCallbackProvider toolCallbackProvider(LocationService locationService,
-													 PostgresService postgresCapabilityService,
-													 AppServiceService appServiceService) {
+	public ToolCallbackProvider toolCallbackProvider(LocationMcpTool locationMcpTool,
+													 PostgresMcpTool postgresMcpTool,
+													 AppServiceMcpTool appServiceMcpTool) {
 		return MethodToolCallbackProvider.builder()
-				.toolObjects(locationService, postgresCapabilityService, appServiceService)
+				.toolObjects(locationMcpTool, postgresMcpTool, appServiceMcpTool)
 				.build();
 	}
 

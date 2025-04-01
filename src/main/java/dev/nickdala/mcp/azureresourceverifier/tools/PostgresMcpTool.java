@@ -1,7 +1,6 @@
 package dev.nickdala.mcp.azureresourceverifier.tools;
 
-import dev.nickdala.mcp.azureresourceverifier.azure.Location;
-import dev.nickdala.mcp.azureresourceverifier.azure.PostgreFlexibleServer;
+import dev.nickdala.mcp.azureresourceverifier.azure.PostgresFlexibleServer;
 import dev.nickdala.mcp.azureresourceverifier.azure.PostgresCapability;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,14 +11,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PostgresService {
+public class PostgresMcpTool {
 
-    private final Logger log = LoggerFactory.getLogger(PostgresService.class);
+    private final Logger log = LoggerFactory.getLogger(PostgresMcpTool.class);
 
-    private PostgreFlexibleServer postgreFlexibleServer;
+    private final PostgresFlexibleServer postgresFlexibleServer;
 
-    public PostgresService(PostgreFlexibleServer postgreFlexibleServer) {
-        this.postgreFlexibleServer = postgreFlexibleServer;
+    public PostgresMcpTool(PostgresFlexibleServer postgresFlexibleServer) {
+        this.postgresFlexibleServer = postgresFlexibleServer;
     }
 
     @Tool(
@@ -32,6 +31,6 @@ public class PostgresService {
     )
     public List<PostgresCapability> findAllPostgres(@ToolParam(description = "The list of Azure regions") List<String> regions) {
         log.info("Finding all PostgreSQL flexible servers");
-        return postgreFlexibleServer.findAll(regions);
+        return postgresFlexibleServer.findAll(regions);
     }
 }

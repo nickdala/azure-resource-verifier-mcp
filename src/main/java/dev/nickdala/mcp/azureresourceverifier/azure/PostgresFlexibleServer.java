@@ -12,13 +12,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class PostgreFlexibleServer {
+public class PostgresFlexibleServer {
 
-    private final Logger log = LoggerFactory.getLogger(PostgreFlexibleServer.class);
+    private final Logger log = LoggerFactory.getLogger(PostgresFlexibleServer.class);
 
     private final PostgreSqlManager postgreSqlManager;
 
-    public PostgreFlexibleServer(PostgreSqlManager postgreSqlManager) {
+    public PostgresFlexibleServer(PostgreSqlManager postgreSqlManager) {
         this.postgreSqlManager = postgreSqlManager;
     }
 
@@ -26,7 +26,7 @@ public class PostgreFlexibleServer {
         log.info("Finding all PostgreSQL flexible servers");
         LocationBasedCapabilities locationBasedCapabilities = postgreSqlManager.locationBasedCapabilities();
         return locations.stream()
-                .map(location -> getPostgresCapability(location))
+                .map(this::getPostgresCapability)
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
     }
