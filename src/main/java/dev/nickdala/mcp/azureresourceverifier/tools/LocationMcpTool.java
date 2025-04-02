@@ -1,9 +1,5 @@
 package dev.nickdala.mcp.azureresourceverifier.tools;
 
-//import org.springframework.web.bind.annotation.GetMapping;
-//import org.springframework.web.bind.annotation.RequestMapping;
-//import org.springframework.web.bind.annotation.RestController;
-
 import dev.nickdala.mcp.azureresourceverifier.azure.Location;
 import dev.nickdala.mcp.azureresourceverifier.azure.LocationFinder;
 import org.slf4j.Logger;
@@ -13,8 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-//@RestController
-//@RequestMapping("/api/v1/azure")
 @Service
 public class LocationMcpTool {
 
@@ -26,7 +20,6 @@ public class LocationMcpTool {
         this.locationFinder = locationFinder;
     }
 
-    //@GetMapping("/locations")
     @Tool(
             name = "get-azure-regions",
             description = """
@@ -36,7 +29,6 @@ public class LocationMcpTool {
     Show both the name and display name of the location.
     """
     )
-    //public List<Location> getAzureLocations(@ToolParam(description = "The Azure subscription id", required = true) String subscriptionId) {
     public List<Location> getAzureLocations() {
         return locationFinder.findAllLocations();
     }
