@@ -1,6 +1,6 @@
 # Azure Resource Verifier MCP
 
-An AI assistant for verifying Azure resources across regions through the [Model Context Protocol](https://www.modelcontextprotocol.ai/) (MCP). This tool helps determine which Azure services are available in different regions and with specific configurations.
+An AI assistant for verifying Azure resources across regions through the [Model Context Protocol](https://modelcontextprotocol.io/) (MCP). This tool helps determine which Azure services are available in different regions and with specific configurations.
 
 ## Overview
 
