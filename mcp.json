@@ -1,0 +1,16 @@
+{
+    "mcpServers": {
+            "my-mcp-server-d9a2ec51": {
+                "type": "stdio",
+                "command": "java",
+                "args": [
+                    "-jar",
+                    "/path/to/azure-resource-verifier-mcp-0.0.1-SNAPSHOT.jar"
+                ],
+                "env": {
+                    "AZURE_TENANT_ID": "",
+                    "AZURE_SUBSCRIPTION_ID": ""
+                }
+            }
+    }
+}
