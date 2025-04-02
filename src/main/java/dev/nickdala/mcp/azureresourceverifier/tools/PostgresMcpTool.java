@@ -22,10 +22,11 @@ public class PostgresMcpTool {
     }
 
     @Tool(
-            name = "get-postgres-capabilities",
+            name = "get-postgres-regional-capabilities",
             description = """
-    Get all PostgreSQL flexible server capabilities in the Azure subscription. This tool is used to get a list of all PostgreSQL flexible server capabilities
-    in the Azure subscription.  The list of capabilities is used to verify if the resource can be deployed to an Azure region.
+    Determines if a PostgreSQL flexible server can be deployed to an Azure region. If PostgreSQL is restricted in that
+    region, the tool gives the reason for the restriction. In addition, the tool gets the capabilities for the PostgreSQL
+    server in that region: for example high availability (HA) is only supported in certain regions.
     If the command fails because of authentication errors, ask the user to login to Azure CLI with `az login`.
     """
     )
