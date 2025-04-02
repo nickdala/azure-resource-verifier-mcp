@@ -17,7 +17,7 @@ public class AppService {
     }
 
     public List<AppServiceRegionResult> getRegions(AppServiceOsEnum os, AppServicePublishingTypeEnum publishingType) {
-        var resourceProvidersClient = getResourceProvidersClient();
+        var resourceProvidersClient = this.appServiceManager.serviceClient().getResourceProviders();
         var linux = os == AppServiceOsEnum.LINUX;
         var xeon = publishingType == AppServicePublishingTypeEnum.CONTAINER && os == AppServiceOsEnum.WINDOWS;
         var regions = resourceProvidersClient.listGeoRegions(null, linux, xeon,false, Context.NONE);
@@ -25,16 +25,4 @@ public class AppService {
                 .map(region -> new AppServiceRegionResult(region.name(), region.displayName()))
                 .toList();
     }
-
-    
-    /**
-     * Gets the resource providers client.
-     *
-     * @return the ResourceProvidersClient instance
-     */
-    private ResourceProvidersClient getResourceProvidersClient() {
-        return this.appServiceManager.serviceClient().getResourceProviders();
-    }
-
-
 }
