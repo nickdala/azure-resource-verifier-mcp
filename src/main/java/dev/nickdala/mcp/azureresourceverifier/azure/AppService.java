@@ -2,7 +2,6 @@ package dev.nickdala.mcp.azureresourceverifier.azure;
 
 import com.azure.core.util.Context;
 import com.azure.resourcemanager.appservice.AppServiceManager;
-import com.azure.resourcemanager.appservice.fluent.ResourceProvidersClient;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
