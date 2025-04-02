@@ -8,7 +8,7 @@ public record Location(String name, String displayName) {
 
     @Override
     public String toString() {
-        return "Location{" +
+        return "Region{" +
                 "name='" + name + '\'' +
                 ", displayName='" + displayName + '\'' +
                 '}';

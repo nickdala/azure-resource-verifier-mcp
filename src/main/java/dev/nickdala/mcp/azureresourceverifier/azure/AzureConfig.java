@@ -5,6 +5,8 @@ import com.azure.core.management.AzureEnvironment;
 import com.azure.core.management.profile.AzureProfile;
 import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.resourcemanager.AzureResourceManager;
+import com.azure.resourcemanager.appservice.AppServiceManager;
+import com.azure.resourcemanager.postgresqlflexibleserver.PostgreSqlManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -28,5 +30,15 @@ public class AzureConfig {
         return AzureResourceManager.configure()
                 .authenticate(tokenCredential, profile)
                 .withDefaultSubscription();
+    }
+
+    @Bean
+    public PostgreSqlManager postgreSqlManager(AzureProfile profile, TokenCredential tokenCredential) {
+        return PostgreSqlManager.authenticate(tokenCredential, profile);
+    }
+
+    @Bean
+    public AppServiceManager appServiceManager(AzureProfile profile, TokenCredential tokenCredential) {
+        return AppServiceManager.authenticate(tokenCredential, profile);
     }
 }
