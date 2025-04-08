@@ -24,7 +24,7 @@ Using these tools, you can check which regions support your required Azure servi
 To build the project:
 
 ```bash
-./mvnw clean package -DskipTests
+./mvnw clean package
 ```
 
 ## Integrating with Claude
