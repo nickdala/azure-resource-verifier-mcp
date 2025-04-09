@@ -1,6 +1,14 @@
 # Azure Resource Verifier MCP
 
-An AI assistant for verifying Azure resources across regions through the [Model Context Protocol](https://modelcontextprotocol.io/) (MCP). This tool helps determine which Azure services are available in different regions and with specific configurations. This is an MCP implementation of the [azure-resource-verifier](https://github.com/nickdala/azure-resource-verifier).
+<div align="center">
+  <img src="./images/logo.jpeg" alt="Logo" width="200"/>
+</div>
+
+## What is this? 🤔
+
+This is an AI assistant for verifying Azure resources across regions through the [Model Context Protocol](https://modelcontextprotocol.io/) (MCP). This tool helps determine which Azure services are available in different regions and with specific configurations. 
+
+Note: This is an MCP implementation of the [azure-resource-verifier](https://github.com/nickdala/azure-resource-verifier).
 
 ## Overview
 
@@ -12,12 +20,21 @@ This MCP server provides a set of tools to verify the availability of Azure reso
 
 Using these tools, you can check which regions support your required Azure services and configurations before deployment.
 
+### Quick Example
+
+```text
+You: "Show me the available regions for PostgreSQL flexible server"
+Claude: "Sure! Here are the available regions for PostgreSQL flexible server:"
+Claude: "East US, West US, North Europe"
+```
+
 ## Prerequisites
 
 - Java 17 or higher
 - Maven
 - Azure CLI installed and authenticated
 - Azure subscription
+- Claude Desktop or VS Code
 
 ## Building the Project
 
@@ -27,7 +44,48 @@ To build the project:
 ./mvnw clean package
 ```
 
-## Integrating with Claude
+## Integrating with VS Code
+
+Note: In order to use MCP servers with VS Code, you need to have the latest version of 1.99.1 or higher and enable chat agents in the settings. For more information, refer to [VS Code Documentation](https://code.visualstudio.com/updates/v1_99#_agent-mode-is-available-in-vs-code-stable)
+
+### Start the MCP Server
+
+Edit the `mcp.json` file in the `.vscode` directory of your workspace to include the full path to the JAR file as well as the required environment variables. The `mcp.json` file should look like this:
+
+```json
+{
+    "servers": {
+        "azure-resource-verifier": {
+            "type": "stdio",
+            "command": "java",
+            "args": [
+                "-jar",
+                "/path/to/azure-resource-verifier-0.0.1-SNAPSHOT.jar"
+            ],
+            "env": {
+                "AZURE_TENANT_ID": "your-tenant-id",
+                "AZURE_SUBSCRIPTION_ID": "your-subscription-id"
+            }
+        }
+    }
+}
+```
+
+![VS Code MCP](./images/vscode-mcp.png)
+
+### Open Copilot Chat and verify the MCP server is running
+
+1. Open up the Copilot chat panel in VS Code.
+2. Make sure that agent mode is selected.
+3. Click on the *Tools* icon in the chat panel.
+
+![VS Code MCP Tools](./images/vscode-tools.png)
+
+### Chat with the MCP server in VS Code:
+
+![VS Code Chat](./images/vscode-chat.png)
+
+## Integrating with Claude Desktop
 
 To use this MCP server with Claude, create or update the Claude configuration file:
 
@@ -72,6 +130,12 @@ You can authenticate using the Azure CLI before running the server:
 
 ```bash
 az login
+```
+
+If you have multiple tenants, you can use the following command to log into the tenant:
+
+```bash
+az login --tenant <tenant-id>
 ```
 
 Use the following command to get the current tenant and subscription information:

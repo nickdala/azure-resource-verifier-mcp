@@ -1,0 +1,18 @@
+{
+    "servers": {
+        "azure-resource-verifier": {
+            "type": "stdio",
+            "command": "java",
+            // Update to your full path for the Azure Resource Verifier MCP server jar file
+            "args": [
+                "-jar",
+                "/path/to/azure-resource-verifier-0.0.1-SNAPSHOT.jar"
+            ],
+            // Update with your Azure tenant ID and subscription ID
+            "env": {
+                "AZURE_TENANT_ID": "your-tenant-id",
+                "AZURE_SUBSCRIPTION_ID": "your-subscription-id"
+            }
+        }
+    }
+}

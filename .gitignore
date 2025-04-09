@@ -29,8 +29,5 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
-.vscode/
-
 azure-resource-verifier-mcp.log
 .DS_Store
