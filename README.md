@@ -32,6 +32,7 @@ Claude: "East US, West US, North Europe"
 
 - Java 17 or higher
 - Maven
+- JBang
 - Azure CLI installed and authenticated
 - Azure subscription
 - Claude Desktop or VS Code
