@@ -2,10 +2,11 @@
     "servers": {
         "azure-resource-verifier": {
             "type": "stdio",
-            "command": "java",
+            "command": "jbang",
             // Update to your full path for the Azure Resource Verifier MCP server jar file
             "args": [
-                "-jar",
+                "--java",
+                "24",
                 "/path/to/azure-resource-verifier-0.0.1-SNAPSHOT.jar"
             ],
             // Update with your Azure tenant ID and subscription ID
