@@ -1,7 +1,7 @@
 # Azure Resource Verifier MCP
 
 <div align="center">
-  <img src="./images/logo.jpeg" alt="Logo" width="200"/>
+  <img src="https://github.com/nickdala/azure-resource-verifier-mcp/raw/main/images/logo.jpeg" alt="Logo" width="200"/>
 </div>
 
 ## What is this? 🤔
